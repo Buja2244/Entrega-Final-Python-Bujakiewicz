@@ -1,0 +1,10 @@
+/venv
+/.venv
+.direnv
+Pipfile.lock
+__pycache__
+*.pyc
+*.swp
+*.log
+/staticfiles
+.env
