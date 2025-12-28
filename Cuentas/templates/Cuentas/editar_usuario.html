@@ -1,0 +1,40 @@
+{% extends "Blog/base.html" %}
+
+{% block contenido_principal %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-dark text-white text-center">
+                    <h3>Configuración de la Cuenta</h3>
+                </div>
+                <div class="card-body">
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+
+                        <div class="text-center mb-4">
+                            {% if user.avatar_set.last %}
+                                <img src="{{ user.avatar_set.last.imagen.url }}" class="rounded-circle" style="width: 150px; height: 150px; object-fit: cover;">
+                            {% else %}
+                                <div class="bg-secondary rounded-circle d-inline-block" style="width: 150px; height: 150px;"></div>
+                            {% endif %}
+                            <br>
+                            <a href="{% url 'agregar_avatar' %}" class="btn btn-sm btn-outline-primary mt-2">Editar Foto de Perfil</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Guardar Cambios en el Perfil</button>
+                    </form>
+                    
+                    <hr> <div class="text-center">
+                        <p>¿Deseas cambiar tu Contraseña?</p>
+                        <a href="{% url 'CambiarContrasenia' %}" class="btn btn-outline-warning btn-sm">
+                            Cambiar Contraseña
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "Blog/base.html" %}
+{% load static %}
+{% block contenido_principal %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h1 class="mb-4">Acerca de nosotros</h1>
+            <img src="{% static '/img/pngwing.com.png' %}" alt="Mi foto">
+            
+            <div class="card shadow p-4">
+                <h3>Hola, somos TecShare</h3>
+                <p class="lead mt-3">
+                    Un Proyecto de Foro para Compartir Reviews Sobre Tecnologia
+                </p>
+                <p>
+                    En este sistema puedes gestionar posts, para compartir con los demas tu experiencia con los productos que adquiriste,
+                     ademas puedes buscar las reviews de otros miembros para ayudarte a decidir si quieres adquirir un producto o no.
+                </p>
+            </div>
+            
+            <div class="mt-4">
+                <a href="{% url 'inicio' %}" class="btn btn-primary">Volver al inicio</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

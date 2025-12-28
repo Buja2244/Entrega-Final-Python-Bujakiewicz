@@ -1,0 +1,28 @@
+{% extends "Blog/base.html" %}
+
+{% block contenido_principal %}
+<div class="container mt-4">
+    <h2>Resultados para: "{{ criterio }}"</h2>
+    <hr>
+    {% if resultados %}
+        <div class="row">
+            {% for post in resultados %}
+                <div class="col-md-4 mb-3">
+                    <div class="card h-100">
+                        {% if post.imagen %}
+                            <img src="{{ post.imagen.url }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ post.titulo }}</h5>
+                            <p class="card-text text-muted">Por: {{ post.autor }}</p>
+                            <a href="#" class="btn btn-primary btn-sm">Leer más</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-warning">No se encontraron posts con ese título.</div>
+    {% endif %}
+</div>
+{% endblock %}

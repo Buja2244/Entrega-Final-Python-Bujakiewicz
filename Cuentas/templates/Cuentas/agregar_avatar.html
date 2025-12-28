@@ -1,0 +1,25 @@
+{% extends "Blog/base.html" %}
+
+{% block contenido_principal %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4>Cambiar Avatar</h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ formulario.as_p }}
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Guardar Avatar</button>
+                            <a href="{% url 'inicio' %}" class="btn btn-secondary">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

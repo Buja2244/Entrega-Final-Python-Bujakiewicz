@@ -1,0 +1,49 @@
+{% extends "Blog/base.html" %}
+
+{% block contenido_principal %} 
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Blogs de Tecnologia</h1>
+        <a href="{% url 'crear_blog' %}" class="btn btn-success">Crear Nueva Entrada</a>
+    </div>
+    
+    <div class="row">
+        {% for blog in blogs %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100">
+                {% if blog.imagen %}
+                    <img src="{{ blog.imagen.url }}" class="card-img-top" alt="{{ blog.titulo }}" style="height: 200px; object-fit: cover;">
+                {% else %}
+                    <div class="bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 200px;">
+                        <span>Sin imagen</span>
+                    </div>
+                {% endif %}
+                
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{ blog.titulo }}</h5>
+                    <p class="card-text text-muted">{{ blog.subtitulo }}</p>
+                    
+                    <p class="small mt-auto">
+                        Por: <strong>{{ blog.autor.username }}</strong> | {{ blog.fecha|date:"d/m/Y" }}
+                    </p>
+                    
+                    <div class="mt-2">
+                        <a href="{% url 'detalle_blog' blog.id %}" class="btn btn-sm btn-primary">Leer más</a>
+
+                        {% if blog.autor == user or user.is_superuser %}
+                            <a href="{% url 'editar_blog' blog.id %}" class="btn btn-sm btn-warning">Editar</a>
+                            <a href="{% url 'eliminar_blog' blog.id %}" class="btn btn-sm btn-danger">Eliminar</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12 text-center">
+            <h2 class="text-warning">No hay entradas aun</h2>
+            <p>Crear una entrada</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

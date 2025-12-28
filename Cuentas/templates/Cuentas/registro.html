@@ -1,0 +1,46 @@
+{% extends "Blog/base.html" %}
+
+{% block contenido_principal %}
+<style>
+    form p label { display: block; font-weight: bold; margin-bottom: 5px; }
+    form p input { width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 10px; }
+    .helptext { font-size: 0.8em; color: #666; display: block; margin-bottom: 10px; }
+    .errorlist { color: red; list-style: none; padding: 0; font-size: 0.9em; }
+</style>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header bg-success text-white text-center">
+                    <h3>Crear Nueva Cuenta</h3>
+                </div>
+                <div class="card-body">
+                    
+                    {% if messages %}
+                        {% for mensaje in messages %}
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ mensaje }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        {{ form.as_p }}
+                        
+                        <button type="submit" class="btn btn-success w-100 mt-3">Registrarse</button>
+                    </form>
+
+                    <hr>
+                    <div class="text-center">
+                        <p>¿Ya tienes una cuenta? <a href="{% url 'Login' %}">Inicia sesión aquí</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

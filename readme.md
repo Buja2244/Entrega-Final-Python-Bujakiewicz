@@ -1,13 +1,30 @@
 # Tienda de Celulares - Pre Entrega Django
 
-Sistema basico de gestion de inventario para una tienda de celulares utilizando Django.
+Blog de Reviews sobre Tecnologia
+
+Este es un desarrollo de una aplicación web estilo blog realizada con el framework Django. La plataforma permite gestionar entradas, usuarios y perfiles.
 
 ## Caracteristicas
 
-* **Framework:** Django (Python).
-* **Estilo:** Bootstrap 5 parcialmente implementado.
-* **Funcionalidades:** Creacion y Busqueda de elementos en una DB.
+* **Tecnologias:** Python, Django, CKEditor, Bootstrap5
 
-## Super Usuario para Revision y testeo (Deje la DB fuera del GitIgnore para hacer mas rapido el acto de logear y probar)
-user:admin
-pass:admin
+* **Funcionalidades:**
+
+1. Gestión de Contenido
+Listado de páginas: Vista de todos los posts en /pages/.
+Detalle de post: Visualización individual de cada entrada con su imagen.
+CRUD Completo: Creación, edición y borrado de entradas (protegido por login).
+Buscador: Filtrado de blogs por título.
+CKEditor: Implementado en el cuerpo de los posts para permitir formato profesional.
+
+2. Gestión de Usuarios
+Autenticación: Login, Logout y Registro.
+Perfil de Usuario: Visualización de datos y Avatar.
+Edición de Perfil: Modificación de datos personales y cambio de contraseña.
+
+3. Requisitos Técnicos
+Vistas Basadas en Clases (CBV): Implementadas para el listado y detalle.
+Mixins y Decoradores: Control de acceso mediante LoginRequiredMixin y @login_required.
+Herencia de Templates: Uso de un base.html para la barra de navegación y estructura general.
+
+## Autor - Bujakiewicz Joaquin
