@@ -1,4 +1,4 @@
-# Tienda de Celulares - Pre Entrega Django
+# Entrega Final Django
 
 Blog de Reviews sobre Tecnologia
 
